@@ -53,11 +53,11 @@ Partial Public Class _Default
                 compositeLink.PrintingSystemBase.ExportToRtf(stream)
                 type = "rtf"
         End Select
-        Session("ExportStreame") = stream
+        Session("ExportStream") = stream
         Session("type") = type
     End Sub
     Protected Sub btn_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Dim stream As MemoryStream = TryCast(Session("ExportStreame"), MemoryStream)
+        Dim stream As MemoryStream = TryCast(Session("ExportStream"), MemoryStream)
         Dim type As String = Session("type").ToString()
         WriteToResponse(grid.ID, True, type, stream)
     End Sub
