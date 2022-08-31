@@ -8,13 +8,13 @@
 **[[Run Online]](https://codecentral.devexpress.com/e2293/)**
 <!-- run online end -->
 
-This example demonstrates how to display the [ASPxLoadingPanel](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxLoadingPanel) while the Grid View data export is in progress.
+This example demonstrates how to display the [ASPxLoadingPanel](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxLoadingPanel) while the Grid View is exporting data.
 
 ![Show ASPxLoadingPanel During Export](export-loading-panel.png)
 
 ## Implementation Details
 
-You can show the loading panel on the client when you start the export process. There are no client events that signal that the export is done and the loading panel should be hidden. This example illustrates how to use the [ASPxCallback](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxCallback) control to overcome this limitation.
+You can show the loading panel on the client when you start the export process. There are no client events that signal that the export is complete and the loading panel should be hidden. This example illustrates how to use the [ASPxCallback](https://docs.devexpress.com/AspNet/DevExpress.Web.ASPxCallback) control to negate this limitation.
 
 1. Use the callback control's [PerformCallback](https://docs.devexpress.com/AspNet/js-ASPxClientCallback.PerformCallback(parameter)) client event to start the export process.
 
@@ -57,7 +57,7 @@ You can show the loading panel on the client when you start the export process. 
     }
     ```
 
-3. After the callback is processed on the server and returns back to the client, you can handle the result in the callback control's [`CallbackComplete`](https://docs.devexpress.com/AspNet/js-ASPxClientCallback.CallbackComplete) event handler. Initiate a postback to download the exported file.
+3. After the callback is processed on the server and returns to the client, you can handle the result in the callback control's [`CallbackComplete`](https://docs.devexpress.com/AspNet/js-ASPxClientCallback.CallbackComplete) event handler. Initiate a postback to download the exported file.
 
     ```js
     function ExportCallbackComplete(s, e) {
