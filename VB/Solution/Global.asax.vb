@@ -1,37 +1,32 @@
-Imports System.Web.SessionState
-Imports DevExpress.Web
+Imports System
 
-Public Class Global_asax
-    Inherits System.Web.HttpApplication
-    Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
-        AddHandler DevExpress.Web.ASPxWebControl.CallbackError, AddressOf Application_Error
-        DevExpress.Security.Resources.AccessSettings.DataResources.SetRules(
-            DevExpress.Security.Resources.DirectoryAccessRule.Allow(Server.MapPath("~/Content")),
-            DevExpress.Security.Resources.UrlAccessRule.Allow()
-        )
-    End Sub
+Namespace Solution
 
-    Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires when the session is started
-    End Sub
+    Public Class Global_asax
+        Inherits Web.HttpApplication
 
-    Sub Application_BeginRequest(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires at the beginning of each request
-    End Sub
+        Private Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
+            AddHandler DevExpress.Web.ASPxWebControl.CallbackError, New EventHandler(AddressOf Application_Error)
+            DevExpress.Security.Resources.AccessSettings.DataResources.SetRules(DevExpress.Security.Resources.DirectoryAccessRule.Allow(Server.MapPath("~/Content")), DevExpress.Security.Resources.UrlAccessRule.Allow())
+        End Sub
 
-    Sub Application_AuthenticateRequest(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires upon attempting to authenticate the use
-    End Sub
+        Private Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs on application shutdown
+        End Sub
 
-    Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires when an error occurs
-    End Sub
+        Private Sub Application_Error(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs when an unhandled error occurs
+        End Sub
 
-    Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires when the session ends
-    End Sub
+        Private Sub Session_Start(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs when a new session is started
+        End Sub
 
-    Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)
-        ' Fires when the application ends
-    End Sub
-End Class
+        Private Sub Session_End(ByVal sender As Object, ByVal e As EventArgs)
+        ' Code that runs when a session ends. 
+        ' Note: The Session_End event is raised only when the sessionstate mode
+        ' is set to InProc in the Web.config file. If session mode is set to StateServer 
+        ' or SQLServer, the event is not raised.
+        End Sub
+    End Class
+End Namespace
