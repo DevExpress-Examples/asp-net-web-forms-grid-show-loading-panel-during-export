@@ -1,6 +1,7 @@
 <!-- default badges list -->
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/E2293)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 *Files to look at*:
 
@@ -13,3 +14,10 @@
 <p>When you export a grid with a lage amount of data, you might want to show the ASPxLoadingPanel during exporting. Generally, it is possible to show the LoadingPanel when you start the exporting process. However, you will not be able to determine the moment when it should be hidden, since no events are generated in the client side when the exporting result is shown...</p><p>This example illustrates how to overcome this limit by using the ASPxCallback control. To get the desired results, we've used the Callback control's client-side <a href="https://docs.devexpress.com/AspNet/js-ASPxClientCallback.EndCallback"><u>EndCallback</u></a> event to hide the LoadingPanel, since this event is raised after a callback's server-side process is completed. However, since exporting is not possible on callbacks, it is necessary to keep the exported data to a stream in the Session. Then, send a postback to the server and continue the exporting process.</p>
 
 <br/>
+<!-- feedback -->
+## Does this example address your development requirements/objectives?
+
+[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-grid-show-loading-panel-during-export&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-grid-show-loading-panel-during-export&~~~was_helpful=no)
+
+(you will be redirected to DevExpress.com to submit your response)
+<!-- feedback end -->
